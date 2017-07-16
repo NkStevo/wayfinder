@@ -20,6 +20,16 @@ class User(models.Model):
     avatar_link = models.CharField(max_length=2083,blank=True,null=True,help_text=("Enter the avatar link"))
     creation_date = models.DateTimeField(editable=False,null=True)
 
+    def save(self, *args, **kwargs):
+        if not self.creation_date:
+          self.creation_date = timezone.now()
+
+        return super(User, self).save(*args, **kwargs)
+
+
+    def __str__(self):
+        return self.username
+
 class Match(models.Model):
     first_name = models.CharField(max_length=100,blank=True,null=True,help_text=("Enter the first name of user"))
     last_name = models.CharField(max_length=100,blank=True,null=True,help_text=("Enter the last name"))
@@ -33,14 +43,5 @@ class Match(models.Model):
     facebook_link = models.CharField(max_length=2083,blank=True,null=True,help_text=("Enter the facebook link"))
     avatar_link = models.CharField(max_length=2083,blank=True,null=True,help_text=("Enter the avatar link"))
 
-
-
-    def save(self, *args, **kwargs):
-        if not self.creation_date:
-          self.creation_date = timezone.now()
-
-        return super(User, self).save(*args, **kwargs)
-
-
     def __str__(self):
-        return self.username
+        return self.first_name
