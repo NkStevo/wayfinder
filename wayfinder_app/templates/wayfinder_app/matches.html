@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<!--
+	Identity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+-->
+<html>
+	<head>
+		<title>WayFinder: Who's Your Network?</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../../static/wayfinder_app/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="../../static/wayfinder_app/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+		<div id="holderDiv" style="display: none;">
+            {% for match in matches %}
+			<div class="match-div">
+				<span class="avatar"><img src={{match.avatar_link}} alt="" /></span>
+				<h1>{{match.first_name}} {{match.last_name}}</h1>
+				<p>{{match.age}} years old</p>
+                <p>{{match.city}}, {{matches.0.state}}</p>
+                <p>{{match.occupation}}</p>
+				<p>{{match.college}}</p>
+				<p>{{match.employer}}</p>
+
+			<footer style="margin-top: 7%;">
+				<ul class="icons">
+					<li><a href={{match.linkedin_link}} class="fa-linkedin">Linked In</a></li>
+					<li><a href={{match.facebook_link}} class="fa-facebook">Facebook</a></li>
+				</ul>
+			</footer>
+			</div>
+            {% endfor %}
+		</div>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+
+					<section id="main">
+						<div class="match-div">
+                            <span class="avatar"><img src={{first_match.avatar_link}} alt="" /></span>
+            				<h1>{{first_match.first_name}} {{first_match.last_name}}</h1>
+            				<p>{{first_match.age}} years old</p>
+                            <p>{{first_match.city}}, {{first_match.state}}</p>
+                            <p>{{first_match.occupation}}</p>
+            				<p>{{first_match.college}}</p>
+            				<p>{{first_match.employer}}</p>
+
+						<footer style="margin-top: 7%;">
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/evan-flowers-8651b5129/" class="fa-linkedin">Linked In</a></li>
+								<li><a href="https://www.facebook.com/evan.flowers.712" class="fa-facebook">Facebook</a></li>
+							</ul>
+						</footer>
+						</div>
+					</section>
+				</div>
+
+				<!-- Footer -->
+					<!-- <footer id="footer">
+						<ul class="copyright">
+							<li>&copy; Jane Doe</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer> -->
+
+			</div>
+
+		<!-- Scripts -->
+			<!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+			<script>
+				if ('addEventListener' in window) {
+					window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+					document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+				}
+			</script>
+
+			<script src="../../static/wayfinder_app/js/helpers.js"></script>
+
+	</body>
+</html>
