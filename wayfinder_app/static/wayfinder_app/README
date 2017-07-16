@@ -1,1 +1,12 @@
 
+$(function(){
+  $("#giConfig").click(function(){
+    $("#giOpts").slideToggle("slow");
+  });
+  $("#blConfig").click(function(){
+    $("#blOpts").slideToggle("slow");
+  });
+  $("#esConfig").click(function(){
+    $("#esOpts").slideToggle("slow");
+  });
+});
